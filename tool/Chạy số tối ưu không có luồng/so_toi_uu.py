@@ -155,6 +155,10 @@ l. config(bg="#ccffff")
 
 l.place(x=350, y=2)
 
+
+l.configure(state='disabled')
+t.configure(state='disabled')
+
 sever = tk.Entry(window, width=17,)
 sever.insert(0, "https://dev.saleholding.com/")
 sever.place(x=245,y=150)
