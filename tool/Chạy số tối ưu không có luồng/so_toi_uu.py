@@ -77,6 +77,8 @@ def chay_so(c, arr_id):
         [all_col.remove(x) for x in ["id", "stage_id", "description", "user_id", "team_id",
                                                     "created_datetime", "date_open", "latest_read_datetime",
                                                     "create_date", "create_uid", "write_date", "write_uid", "date_open7", "create_date7" ,"message_follower_ids", "message_ids"] if x in all_col]
+        n = len(arr_id)
+        count = 0
         for id in arr_id:
             try:
                 lead = c.model('crm.lead').browse(int(id))
@@ -99,7 +101,9 @@ def chay_so(c, arr_id):
                     lead.is_inprogress = False
                     new_lead = c.model('crm.lead').create(val)
                     lead.optimal_crm_lead_id = new_lead.id
-                    str_tmp += f"{str(lead.id)}          {new_lead.id}"
+                    str_tmp += f"{str(lead.id)}          {new_lead.id}\n"
+                    print(f"{count}   {str(lead.id)}          {new_lead.id}")
+                    count += 1
             except Exception as e:
                 str_tmp += str(e)
     return str_tmp
@@ -160,19 +164,19 @@ l.configure(state='disabled')
 t.configure(state='disabled')
 
 sever = tk.Entry(window, width=17,)
-sever.insert(0, "https://dev.saleholding.com/")
+sever.insert(0, "https://saleholding.com/")
 sever.place(x=245,y=150)
 data = tk.Entry(window, width=17)
-data.insert(0, "dev")
+data.insert(0, "saleholding")
 data.place(x=245,y=180)
 user = tk.Entry(window, width=17)
-user.insert(0, "admin")
+user.insert(0, "tuan.bui3@hebela.net")
 user.place(x=245,y=210)
 password = tk.Entry(window, width=17)
-password.insert(0, "Hebela@123")
+password.insert(0, "Admin@123")
 password.place(x=245,y=240)
 limit = tk.Entry(window, width=17)
-limit.insert(0, "limit")
+limit.insert(0, "1000")
 limit.place(x=245,y=400)
 start = tk.Entry(window, width=17)
 start.insert(0, "start")
