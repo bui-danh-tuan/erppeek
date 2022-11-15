@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-item-left {
+        flex: 30%;
+    }
+
+    .flex-item-right {
+        flex: 70%;
+    }
+
+    .vnp_ul {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 5px 0 5px 0;
+        background: #faebd7;
+        list-style-type: none;
+        border: 2px solid #fdb913;
+        border-radius: 10px;
+    }
+
+    .vnp_li {
+        padding: 1px 0 0 10px;
+        color: #113945;
+    }
+
+    li .fa {
+        margin: 0 5px 0 0;
+        color: black;
+        width: 15px;
+        text-align: center;
+    }
+
+    .state {
+        margin-left: 12px;
+        padding: 3px 6px 4px 7px;
+        border-radius: 20px;
+        font-weight: bolder;
+        font-size: 13px;
+        color: #fff;
+        line-height: 35px;
+        background-color: rgb(0, 128, 0);
+    }
+
+    .h_date {
+        color: #f90;
+    }
+
+    .h_offices {
+        color: #038ee2;
+        font-weight: 700;
+    }
+
+    .h_phone {
+        color: #038ee2;
+        font-style: italic;
+    }
+
+    .h_address {
+        color: #038ee2;
+        font-style: italic;
+    }
+
+    .h_more_info {
+        color: #00f;
+        font-weight: 500;
+    }
+
+    @media (max-width: 800px) {
+        .flex-container {
+            flex-direction: column;
+        }
+    }
+</style>
+<div class="flex-container">
+    <div class="flex-item-left">
+
+        <ul class="vnp_ul">
+            <li class="vnp_li">
+                <i class="fa fa-credit-card"></i>
+                Mã đơn hàng:
+                <span class="order_code"></span>
+            </li>
+            <li class="vnp_li">
+                <i class="fa fa-barcode"></i>
+                Số hiệu:
+                <span class="delivery_code"></span>
+            </li>
+            <li class="vnp_li">
+                <i class="fa fa-user"></i>
+                Người nhận:
+                <span class="receiver"></span>
+            </li>
+            <li class="vnp_li">
+                <i class="fa fa-calendar"></i>
+                Ngày tạo:
+                <span class="created_date"></span>
+            </li>
+            <li class="vnp_li">
+                <i class="fa fa-money"></i>
+                Tiền COD:
+                <span class="cod"></span>
+            </li>
+            <li class="vnp_li">
+                <i class="fa fa-dollar"></i>
+                Tổng cước:
+                <span class="total_cost"></span>
+            </li>
+            <span class="state" class="state">Đã tạo</span>
+        </ul>
+    </div>
+    <div class="flex-item-right">
+        <ul>
+            <li>
+                <span class="h_date">[ h_date ]</span>
+                <span class="h_state">- h_state</span>
+                <span class="h_offices">h_offices</span>
+                <span class="h_phone">(h_phone</span>
+                <span class="h_address">h_address)</span>
+                <a class="h_more_info">Chi tiết</a>
+            </li>
+            <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        </ul>
+    </div>
+</div>
