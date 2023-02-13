@@ -1,14 +1,19 @@
-<p id="all"></p>
-<select name="cars" id="cars" onchange="val()">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-</select>
 <script>
-    function val() {
-        d = document.getElementById("cars").value;
-        document.getElementById("all").innerHTML += `<span class="badge">${d}</span>`;
-        
-    }
+    window.addEventListener('click', function (e) {
+        if (document.getElementsByClassName('o_FormRenderer_chatterContainer').length > 0) {
+            if (document.getElementsByClassName('o_FormRenderer_chatterContainer')[0].contains(e.target)) {
+            } else {
+                if (document.getElementsByClassName('click_remove_mail_message_tag').length > 0) {
+                    if (document.getElementsByClassName('click_remove_mail_message_tag')[0].toString ==
+                        e.target.toString()) { }
+                    else if (document.getElementsByClassName('o_Chatter_composer').length > 0) {
+                        document.getElementsByClassName('o_Chatter_composer')[0].remove();
+                    }
+                }
+                else if (document.getElementsByClassName('o_Chatter_composer').length > 0) {
+                    document.getElementsByClassName('o_Chatter_composer')[0].remove();
+                }
+            }
+        }
+    });
 </script>

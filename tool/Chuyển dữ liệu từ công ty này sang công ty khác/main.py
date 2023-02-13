@@ -63,6 +63,24 @@ def conext_odoo(lable, text, sever, data, user, password, \
         for a in all_data:
             model = c.model(type).browse(a)
             try:
+                dup = c.model(type).search([
+                    ("phone", "=like", model.phone),
+                    ("country_type_id", "=", model.country_type_id.id),
+                    ("product_category_id", "=", c.model('utm.source').browse(new_source).product_category_id.id),
+                    ("was_closed", "!=", True),
+                    ("id", '!=', a)
+                ])
+                if len(dup) > 0 and len(model.sale_order_ids) > 0:
+                    print_lable(lable,f"Trùng với {dup} - {a}")
+                    print(f"Trùng với {dup} - {a}")
+                    continue
+                elif len(dup) > 0 and len(model.sale_order_ids) == 0:
+                    model.action_close()
+                    all_lead = c.model('crm.lead').search([('partner_id', '=', a)])
+                    for l in all_lead:
+                        c.model('crm.lead').browse(l).action_set_failed()
+                    print_lable(lable,f"Đóng {a} vì trùng với {dup}")
+                    print(f"Đóng {a} vì trùng với {dup}")
                 model.write({
                     'contact_creator_id': new_user,
                     'source_id': new_source,
@@ -132,7 +150,7 @@ limit.place(x=300, y=80)
 value_type = tk.StringVar()
 type = ttk.Combobox(window, width = 7, 
                             textvariable = value_type)
-type['values'] = (Partner, 'CRM')
+type['values'] = ('Partner', 'CRM')
 type.current(0)
 type.place(x=300, y=100)
 

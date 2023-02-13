@@ -1,0 +1,5 @@
+f = open("linh tinh\\test.txt", "r")
+f2 = open("linh tinh\\test2.txt", "r")
+arr = f.read().split()
+arr2 = f2.read().split()
+print(set(arr2)-set(arr))
